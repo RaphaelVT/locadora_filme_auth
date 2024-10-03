@@ -2,19 +2,21 @@ import db from "../config/db.js";
 
 const movieSchema = new db.Schema({
   rente_by: {
-    type: String,
+    type: db.Schema.Types.ObjectId,
+    ref: 'User',
     required: true,
   },
   movie_rented: {
-    type: String,
+    type: db.Schema.Types.ObjectId,
+    ref: 'Movie',
     required: true,
   },
   rent_date: {
-    type: Number,
+    type: Date,
     required: true,
   },
   return_date: {
-    type: Number,
+    type: Date,
     required: true,
   },
 

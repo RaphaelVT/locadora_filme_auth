@@ -1,15 +1,15 @@
-import e from "express";
+import express from "express";
 import "dotenv/config";
-import user_router from "./routes/user-route.js";
-import animal_router from "./routes/animal-route.js";
-import scheduling_router from "./routes/scheduling-route.js";
+import movie_router from "./routers/user-router.js";
+import rented_router from "./routers/rented-router.js";
+import user_router from "./routers/user-router.js";
 
-const app = e();
+const app = express();
 
-app.use(e.json());
+app.use(express.json());
 
+app.use("/movie", movie_router);
+app.use("/rented", rented_router);
 app.use("/user", user_router);
-app.use("/animal", animal_router);
-app.use("/scheduling", scheduling_router);
 
 app.listen(process.env.API_PORT, () => console.log("Servidor pet auth executando na porta " + process.env.API_PORT));
